@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "MvcVojnik.sln",
+    "projects": [
+      "MvcVojnik.csproj"
+    ]
+  }
+}

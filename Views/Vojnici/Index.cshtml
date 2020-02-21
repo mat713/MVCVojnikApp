@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MvcVojnik.Models.Vojnik>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Baza Vojnika</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-controller="Vojnici" asp-action="Index">
+      <p>
+          Traži: <input type="text" name="searchString"/>
+          <input type="submit" value="Potvrdi"/>
+       </p></form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumRođenja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Baza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pozicija)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatumRođenja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pozicija)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VojnikId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VojnikId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VojnikId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
